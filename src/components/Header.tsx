@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Image } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import {
   NavigationMenu,
@@ -10,6 +10,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   const location = useLocation();
@@ -37,24 +38,30 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-primary py-4 px-6 flex items-center justify-between">
+    <header className="bg-gradient-to-r from-primary via-purple-600 to-blue-600 py-4 px-6 flex items-center justify-between shadow-lg">
       <div className="flex items-center gap-3">
-        <Link to="/" className="flex items-center gap-3">
-          <img 
-            src="/lovable-uploads/839a85b4-a8c3-49d1-9e4f-753823957697.png" 
-            alt="Shawaiz Image2Text Extractor Logo" 
-            className="h-10 w-10"
-          />
-          <h1 className="text-2xl font-bold text-primary-foreground">
-            Shawaiz-Image2Text-Extractor
-          </h1>
+        <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <div className="relative">
+            <div className="h-12 w-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
+              <Sparkles className="h-7 w-7 text-white" />
+            </div>
+            <div className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 rounded-full animate-pulse"></div>
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold text-white leading-tight">
+              Shawaiz
+            </h1>
+            <p className="text-white/80 text-sm -mt-1">
+              AI-Powered Tools
+            </p>
+          </div>
         </Link>
       </div>
       
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="text-primary-foreground bg-transparent hover:bg-primary/80">
+            <NavigationMenuTrigger className="text-white bg-transparent hover:bg-white/20 backdrop-blur-sm">
               Text Tools
             </NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -74,7 +81,7 @@ const Header = () => {
           </NavigationMenuItem>
           
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="text-primary-foreground bg-transparent hover:bg-primary/80">
+            <NavigationMenuTrigger className="text-white bg-transparent hover:bg-white/20 backdrop-blur-sm">
               Media Tools
             </NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -94,7 +101,7 @@ const Header = () => {
           </NavigationMenuItem>
           
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="text-primary-foreground bg-transparent hover:bg-primary/80">
+            <NavigationMenuTrigger className="text-white bg-transparent hover:bg-white/20 backdrop-blur-sm">
               File Tools
             </NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -115,9 +122,12 @@ const Header = () => {
         </NavigationMenuList>
       </NavigationMenu>
 
-      <div className="flex items-center gap-2">
-        <Image className="text-primary-foreground" />
-        <span className="text-sm font-medium text-primary-foreground">OCR Technology</span>
+      <div className="flex items-center gap-3">
+        <ThemeToggle />
+        <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-2 rounded-lg">
+          <Sparkles className="text-white w-4 h-4" />
+          <span className="text-sm font-medium text-white">AI-Powered</span>
+        </div>
       </div>
     </header>
   );
