@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Sparkles } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import {
   NavigationMenu,
@@ -42,8 +41,15 @@ const Header = () => {
       <div className="flex items-center gap-3">
         <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <div className="relative">
-            <div className="h-12 w-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
-              <Sparkles className="h-7 w-7 text-white" />
+            <div className="h-12 w-12 rounded-xl flex items-center justify-center">
+              <img 
+                src="/lovable-uploads/3fd2750b-5f16-4f89-8d3f-31102db915a2.png" 
+                alt="Shawaiz Logo" 
+                className="h-10 w-10 object-contain"
+                style={{
+                  filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))'
+                }}
+              />
             </div>
             <div className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 rounded-full animate-pulse"></div>
           </div>
@@ -125,7 +131,11 @@ const Header = () => {
       <div className="flex items-center gap-3">
         <ThemeToggle />
         <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-2 rounded-lg">
-          <Sparkles className="text-white w-4 h-4" />
+          <img 
+            src="/lovable-uploads/3fd2750b-5f16-4f89-8d3f-31102db915a2.png" 
+            alt="AI Icon" 
+            className="w-4 h-4 object-contain"
+          />
           <span className="text-sm font-medium text-white">AI-Powered</span>
         </div>
       </div>
